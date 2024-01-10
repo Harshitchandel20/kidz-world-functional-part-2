@@ -123,19 +123,22 @@ function updatePrice() {
 
 cartButton.onclick = () => {
   updatePrice();
+  
+  var whatsappText = "Order Details: "
 
 
   for (let index = 0; index < items.length; index++) {
     if (items[index].quantity != 0) {
-      console.log(
-        "Item name: " +
-          items[index].name +
-          " - Quantity: " +
-          items[index].quantity
-      );
-    }
+      whatsappText += items[index].name +" " + items[index].quantity + " "
+     }
   }
 
+  whatsappText += "Total price: $ " + finalDollars + " " +  finalCents + " c"
+
+  var whatsappLink = "https://wa.me/934057728?text="+whatsappText
+
+  window.open(whatsappLink, " _blank")
+      
   console.log(
     "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
   );
